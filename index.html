@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <title>BINGO</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+           body {
+          margin: 50px 0 0 0 ;
+          padding: 50px 20;
+          background: radial-gradient(#e7059c,rgb(18, 144, 228));
+          color: antiquewhite;
+          box-sizing: border-box;
+          outline: none;
+          list-style: none;
+          text-decoration: none;
+          height: 100vh;
+        
+          justify-content: center;
+          align-items: center;
+      }
+      table, th, td {
+        border:1px solid black;
+        padding: 12px;
+        text-align: center;
+        color: #e7059c;
+      }
+        </style>
+
+        <script>
+            var num=1;
+            
+            function numberselect(clicked_id){
+                var start = document.getElementById("hiddencode").value;
+
+                if(start=="false"){
+                document.getElementById(clicked_id).value=num;
+                
+                num++ ;}
+                else{
+                    document.getElementById(clicked_id).style.background="#5396c5";
+                }
+                document.getElementById(clicked_id).disabled=true;
+            }
+
+            function bingo(clicked_id){
+                document.getElementById(clicked_id).style.background="red";
+            }
+        </script>
+    </head>
+
+    <body>
+        <center>
+        <div id="bingo" class="bingo">
+            <input type="button" value="B" id="B" onclick="bingo(this.id)">
+            <input type="button" value="I" id="I" onclick="bingo(this.id)">
+            <input type="button" value="N" id="N" onclick="bingo(this.id)">
+            <input type="button" value="G" id="G" onclick="bingo(this.id)">
+            <input type="button" value="O" id="O" onclick="bingo(this.id)">
+        </div><br>
+
+        <div id="div_table" style="
+        padding: 5px 0 30px 0;
+    ">
+            <table>
+                <tr>
+                    <td><input id="a11" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a12" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a13" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a14" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a15" type="button" value="" onclick="numberselect(this.id)"></td>
+                </tr>
+    
+                <tr>
+                    <td><input id="a21" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a22" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a23" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a24" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a25" type="button" value="" onclick="numberselect(this.id)"></td>
+                </tr>
+    
+                <tr>
+                    <td><input id="a31" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a32" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a33" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a34" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a35" type="button" value="" onclick="numberselect(this.id)"></td>
+                </tr>
+    
+                <tr>
+                    <td><input id="a41" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a42" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a43" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a44" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a45" type="button" value="" onclick="numberselect(this.id)"></td>
+                </tr>
+    
+                <tr>
+                    <td><input id="a51" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a52" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a53" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a54" type="button" value="" onclick="numberselect(this.id)"></td>
+                    <td><input id="a55" type="button" value="" onclick="numberselect(this.id)"></td>
+                </tr>
+            </table>
+            </div>
+            <div id="divstart">
+                <input type="hidden" id="hiddencode" value="false">
+            <input type="button" value="START" onclick="start()">
+            </div>
+            <script>
+                function start(){
+                    if (num==26){
+                        document.getElementById("hiddencode").value="true";
+                        document.getElementById("divstart").style.display="none";
+                    
+                        for (var x=1; x<=5; x++ ){
+                            for (var y=1; y<=5; y++ ){
+                                var id = "a"+ String(x)+ String(y);
+                                document.getElementById(id).disabled=false;
+                                document.getElementById(id).style.background="red";
+                            }
+                        }
+                    }
+                }
+            </script>
+        </center>
+    </body>
+</html>
